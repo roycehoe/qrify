@@ -36,7 +36,10 @@ async function createTimer() {
 </script>
 
 <template>
-  <button class="hover:bg-neutral-100 flex flex-row" @click="isCreateTimer = !isCreateTimer">
+  <button
+    class="create-timer-form__toggle hover:bg-neutral-100 flex flex-row"
+    @click="isCreateTimer = !isCreateTimer"
+  >
     <div class="flex">
       <MinusIcon class="mb-2" v-if="isCreateTimer"></MinusIcon>
       <PlusIcon class="mb-2" v-else></PlusIcon>
@@ -45,7 +48,7 @@ async function createTimer() {
   </button>
   <div class="divider"></div>
 
-  <div v-if="isCreateTimer">
+  <div v-if="isCreateTimer" class="flex flex-col">
     <div class="form-control">
       <input
         type="text"
@@ -57,48 +60,34 @@ async function createTimer() {
     </div>
     <div class="divider"></div>
 
-    <div class="timer-form flex justify-between">
-      <div class="timer-form--selection flex">
-        <div class="timer-form--inputs">
-          <input type="range" max="24" class="range" v-model.number="createTimerFormDisplay.hours" />
-          <input
-            type="range"
-            max="59"
-            class="range"
-            v-model.number="createTimerFormDisplay.minutes"
-          />
-          <input
-            type="range"
-            max="59"
-            class="range"
-            v-model.number="createTimerFormDisplay.seconds"
-          />
-          <!-- note to self - set default value  -->
-        </div>
+    <div class="timer-form--inputs">
+      <input type="range" max="23" class="range" v-model.number="createTimerFormDisplay.hours" />
+      <input type="range" max="59" class="range" v-model.number="createTimerFormDisplay.minutes" />
+      <input type="range" max="59" class="range" v-model.number="createTimerFormDisplay.seconds" />
+    </div>
 
-        <div class="timer-form--display grid grid-flow-col gap-5 text-center auto-cols-max ml-10">
-          <div class="flex flex-col">
-            <p class="font-mono text-5xl">{{ createTimerFormDisplay.hours }}</p>
-            <p>hours</p>
-          </div>
-          <div class="flex flex-col">
-            <p class="font-mono text-5xl">{{ createTimerFormDisplay.minutes }}</p>
-            <p>minutes</p>
-          </div>
-          <div class="flex flex-col">
-            <p class="font-mono text-5xl">{{ createTimerFormDisplay.seconds }}</p>
-            <p>seconds</p>
-          </div>
+    <div class="timer-form--display__group flex justify-center my-8">
+      <div class="timer-form--display grid grid-flow-col gap-5 text-center auto-cols-max">
+        <div class="flex flex-col">
+          <p class="font-mono text-5xl">{{ createTimerFormDisplay.hours }}</p>
+          <p>hours</p>
         </div>
-      </div>
-      <div class="timer-form--buttons flex items-center">
-        <button
-          @click="createTimer"
-          class="btn btn-success bg-green-500 border-none hover:bg-green-600"
-          :class="{ 'btn-disabled bg-slate-400': !getCreateTimerSeconds() }"
-        >Create Timer</button>
+        <div class="flex flex-col">
+          <p class="font-mono text-5xl">{{ createTimerFormDisplay.minutes }}</p>
+          <p>minutes</p>
+        </div>
+        <div class="flex flex-col">
+          <p class="font-mono text-5xl">{{ createTimerFormDisplay.seconds }}</p>
+          <p>seconds</p>
+        </div>
       </div>
     </div>
+    <button
+      @click="createTimer"
+      class="btn btn-success bg-green-500 border-none hover:bg-green-600"
+      :class="{ 'btn-disabled bg-slate-400': !getCreateTimerSeconds() }"
+    >Create Timer</button>
+    <div class="divider"></div>
   </div>
 </template>
 
