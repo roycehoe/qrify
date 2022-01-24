@@ -29,7 +29,7 @@ function updateTimerData(emittedTimerData: TimerDisplay) {
       </div>
     </div>
     <div>
-      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div class="max-w-7xl py-6 px-8 mx-auto">
         <div class="border-4 border-dashed border-gray-200 rounded-lg min-h-16 h-max my-10">
           <Countdown :data="timerData"></Countdown>
         </div>

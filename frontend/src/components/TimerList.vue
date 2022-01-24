@@ -51,21 +51,24 @@ onBeforeMount(async () => await showDashboardInfo());
 
 <template>
   <div v-for="info in dashboardInfo">
-    <div class="survey bg-neutral-100 rounded-md flex flex-row justify-between m-2 bg-gray-50">
-      <div class="flex items-center">
-        <p class="m-3 font-bold">{{ info.title }}</p>
-      </div>
-
-      <div class="flex items-center">
-        <kbd class="kbd font-mono mr-36">
+    <div
+      class="dashboardInfo__group survey bg-neutral-100 rounded-md m-2 bg-gray-50 flex justify-between"
+    >
+      <div class="dashboardInfo__group--txt">
+        <p class="m-3 font-bold inline-block">{{ info.title }}</p>
+        <kbd class="kbd font-mono m-3">
           <p>{{ info.hours }}h:</p>
           <p>{{ info.minutes }}m:</p>
           <p>{{ info.seconds }}s</p>
         </kbd>
+      </div>
+
+      <div class="dashboardInfo__group--buttons flex items-center">
         <button
           @click="$emit('emitTimerData', info)"
           class="btn btn-success bg-green-500 m-1 w-16 h-8 rounded-md hover:bg-green-600 border-none min-h-0"
         >View</button>
+
         <button
           class="btn btn-success bg-red-500 m-1 w-16 h-8 rounded-md hover:bg-red-600 border-none min-h-0"
           @click="deleteTimer(info.id)"
