@@ -26,6 +26,10 @@
 - `cd frontend`
 - run `pnpm run dev`
 
+# Local testing (Docker)
+- `docker-compose build && docker-compose up`
+
+
 # Deployment
 - change baseURL in `frontend/src/services/config.ts` to `{server_name}`
 - change server_name in `frontend/nginx/default.conf` to `{server_name}/api`
