@@ -25,7 +25,7 @@ function updateTimerData(emittedTimerData: TimerDisplay) {
   <div class="min-h-full">
     <div class="bg-white shadow">
       <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <button @click="$router.push('/')" class="text-3xl font-bold text-gray-900">Kount</button>
+        <button @click="$router.push('/')" class="text-3xl font-bold text-gray-900">QR-ify</button>
       </div>
     </div>
     <div>
