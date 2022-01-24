@@ -9,8 +9,7 @@ TYPE_VALIDATION_ERROR = "TYPE_VALIDATION_ERROR"
 MISSING_AUTHENTICATION_TOKEN = "MISSING_AUTHENTICATION_TOKEN"
 MISSING_FIELD_VALUES = "MISSING_FIELD_VALUES"
 MALFORMED_REQUEST_ERROR = "MALFORMED_REQUEST_ERROR"
-TIMER_NOT_FOUND_ERROR = "TIMER_NOT_FOUND_ERROR"
-INVALID_TIMER_LENGTH_ERROR = "INVALID_TIMER_LENGTH_ERROR"
+QR_NOT_FOUND_ERROR = "QR_NOT_FOUND_ERROR"
 
 
 class UserNotFoundError(Exception):
@@ -53,11 +52,8 @@ class TypeErrorUndefined(Exception):
     pass
 
 
-class TimerNotFoundError(Exception):
+class QRNotFoundError(Exception):
     """Exception raised when the queried SURVEY cannot be found in the database"""
 
     pass
 
-
-class InvalidTimerLengthError(Exception):
-    pass

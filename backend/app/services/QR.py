@@ -3,7 +3,7 @@ from time import time
 
 from sqlalchemy.orm.session import Session
 from app import models, schemas
-from app.errors import InvalidCredentialsError
+from app.errors import InvalidCredentialsError, QRNotFoundError
 from app.repository.QR import QRRepository
 
 
@@ -43,11 +43,11 @@ def get_QR(session: Session, user_id: int, QR_id: int) -> list[models.QR]:
 
     if not __is_QR_owner(QR_id, user_id, session):
         raise InvalidCredentialsError
-    # try:
-    QR = QRRepository(session).get(QR_id)
-    return QR
-    # except TimerNotFoundError:
-    #     raise TimerNotFoundError
+    try:
+        QR = QRRepository(session).get(QR_id)
+        return QR
+    except QRNotFoundError:
+        raise QRNotFoundError
 
 
 def get_all_QRs(user_id: int, session: Session) -> list[models.QR]:
@@ -63,18 +63,18 @@ def get_all_QRs(user_id: int, session: Session) -> list[models.QR]:
     in the session database
     """
 
-    # try:
-    QR = QRRepository(session).get_all(user_id)
-    return QR
-    # except TimerNotFoundError:
-    #     raise TimerNotFoundError
+    try:
+        QR = QRRepository(session).get_all(user_id)
+        return QR
+    except QRNotFoundError:
+        raise QRNotFoundError
 
 
 def delete_QR(QR_id: int, user_id: int, session: Session) -> None:
     if not __is_QR_owner(QR_id, user_id, session):
         raise InvalidCredentialsError
 
-    # try:
-    return QRRepository(session).delete(QR_id)
-    # except TimerNotFoundError:
-    #     raise TimerNotFoundError
+    try:
+        return QRRepository(session).delete(QR_id)
+    except QRNotFoundError:
+        raise QRNotFoundError

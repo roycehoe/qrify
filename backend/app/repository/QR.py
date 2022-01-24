@@ -2,7 +2,7 @@ from sqlalchemy.exc import IntegrityError, InvalidRequestError
 from sqlalchemy.orm.session import Session
 
 from app import models
-# from app.errors import TimerNotFoundError
+from app.errors import QRNotFoundError
 
 
 class QRRepository:
@@ -23,14 +23,14 @@ class QRRepository:
             self.session.query(models.QR).filter(models.QR.id== QR_id).first()
         ):
             return QR_id
-        # raise TimerNotFoundError
+        raise QRNotFoundError
 
     def get_all(self, user_id: str) -> list[models.QR]:
         if QR := (
             self.session.query(models.QR).filter(models.QR.user_id == user_id)
         ).all():
             return QR
-        # raise TimerNotFoundError
+        raise QRNotFoundError
 
     def delete(self, QR_id: int) -> None:
         if QR := self.session.query(models.QR).filter(
@@ -39,4 +39,4 @@ class QRRepository:
             QR.delete()
             self.session.commit()
             return
-        # raise TimerNotFoundError
+        raise QRNotFoundError

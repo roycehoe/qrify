@@ -3,9 +3,6 @@ from pydantic import BaseModel, Field, validator
 from pydantic.types import SecretStr
 from starlette import status
 
-from app.errors import INVALID_TIMER_LENGTH_ERROR
-
-
 class UserIn(BaseModel):
     """A request body to create users
 

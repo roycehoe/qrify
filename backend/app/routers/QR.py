@@ -8,16 +8,13 @@ from app import schemas
 from app.database import get_session
 from app.errors import (
     INVALID_CREDENTIALS,
-    TIMER_NOT_FOUND_ERROR,
+    QR_NOT_FOUND_ERROR,
     TOKEN_AUTHENTICATION_FAILED,
-    USERNAME_TAKEN,
     InvalidAuthenticationTokenError,
     InvalidCredentialsError,
     MissingAuthenticationTokenError,
-    TimerNotFoundError,
-    UsernameNotUniqueError,
+    QRNotFoundError,
 )
-# from app.models import Timer
 
 from app.services import QR
 from app.token import get_user_id
@@ -92,13 +89,13 @@ def get_all_QRs(token: str = Header(None), session: Session = Depends(get_sessio
             detail={"error": TOKEN_AUTHENTICATION_FAILED},
         )
 
-    # try:
-    return QR.get_all_QRs(user_id, session)
-    # except TimerNotFoundError:
-    #     raise HTTPException(
-    #         status_code=status.HTTP_404_NOT_FOUND,
-    #         detail={"error": TIMER_NOT_FOUND_ERROR},
-    #     )
+    try:
+        return QR.get_all_QRs(user_id, session)
+    except QRNotFoundError:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={"error": QR_NOT_FOUND_ERROR},
+        )
 
 
 @router.get(
@@ -137,10 +134,10 @@ def get_QR(
 
     try:
         return QR.get_QR(session, user_id, QR_id)
-    except TimerNotFoundError:
+    except QRNotFoundError:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail={"error": TIMER_NOT_FOUND_ERROR},
+            detail={"error": QR_NOT_FOUND_ERROR},
         )
     except InvalidCredentialsError:
         raise HTTPException(
@@ -185,10 +182,10 @@ def delete_QR(
 
     try:
         return QR.delete_QR(request.QR_id, user_id, session)
-    except TimerNotFoundError:
+    except QRNotFoundError:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail={"error": TIMER_NOT_FOUND_ERROR},
+            detail={"error": QRNotFoundError},
         )
     except InvalidCredentialsError:
         raise HTTPException(
