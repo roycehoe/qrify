@@ -36,9 +36,9 @@ async function login(): Promise<void> {
 </script>
 
 <template>
-  <div class="login-display">
+  <div class="login-display w-full">
     <form class="login-form" @submit.prevent="login">
-      <div class="login-form__username">
+      <div class="login-form__username mb-4">
         <input
           class="login-form__username--grey-input appearance-none rounded-sm relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
           type="text"
@@ -61,7 +61,7 @@ async function login(): Promise<void> {
           required="true"
         />
       </div>
-      <div class="login-form__credentials-error m-1">
+      <div class="login-form__credentials-error h-8">
         <p class="text-red-500 italic">{{ errorDisplay }}</p>
       </div>
 
@@ -78,7 +78,7 @@ async function login(): Promise<void> {
       </div>
     </form>
 
-    <div class="create-account">
+    <div class="create-account text-center">
       <div class="create-account__question m-3">
         <p class="create-account__question--txt">Don't have an account yet?</p>
       </div>
@@ -95,31 +95,4 @@ async function login(): Promise<void> {
 </template>
 
 <style scoped lang="scss">
-.login-form {
-  &__username {
-    margin-bottom: 1vh;
-  }
-  &__password {
-    margin-bottom: 1vh;
-  }
-  &__login-button {
-    &--green {
-      width: 100%;
-    }
-    &--loading {
-      width: 100%;
-    }
-  }
-  &__credentials-error {
-    height: 23px;
-    &--msg {
-      font-style: italic;
-      color: red;
-    }
-  }
-}
-
-.create-account {
-  text-align: center;
-}
 </style>

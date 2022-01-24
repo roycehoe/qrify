@@ -12,8 +12,10 @@ import { getAssetUrl } from '@/services/assets';
         :src="getAssetUrl('graphics', 'logo.png')"
       />
     </div>
-    <div class="display--inputBox mt-8">
-      <router-view></router-view>
+    <div class="display--inputbox__container flex justify-center">
+      <div class="display--inputBox mt-8 w-96">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
