@@ -9,7 +9,7 @@ from app import models
 from app.config import CORS_ALLOWED_ORIGINS
 from app.database import engine
 from app.exceptions import validation_exception_handler
-from app.routers import authentication, timer, user, hello_world
+from app.routers import authentication, user, hello_world, QR
 
 load_dotenv()
 
@@ -34,4 +34,4 @@ app.add_exception_handler(RequestValidationError, validation_exception_handler)
 app.include_router(user.router)
 app.include_router(authentication.router)
 app.include_router(hello_world.router)
-app.include_router(timer.router)
+app.include_router(QR.router)

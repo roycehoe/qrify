@@ -58,36 +58,23 @@ class LoginIn(BaseModel):
     password: SecretStr = Field(max_length=128)
 
 
-class TimerCreateIn(BaseModel):
+class QRCreateIn(BaseModel):
     title: str
-    time: int
+    link: str
 
-    @validator("time", pre=True)
-    def invalid_time(cls, time):
-        if time < 1 or time > 86400:
-            raise HTTPException(
-                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-                detail={
-                    "error": INVALID_TIMER_LENGTH_ERROR,
-                },
-            )
-
-        return time
-
-
-class TimerOut(BaseModel):
+class QRCreateOut(BaseModel):
     id: int
     created_at: float
     title: str
-    time: int
+    link: str
 
     class Config:
         orm_mode = True
 
 
-class TimerGetIn(BaseModel):
+class QRGetIn(BaseModel):
     user_id: int
 
 
-class TimerDeleteIn(BaseModel):
-    timer_id: int
+class QRDeleteIn(BaseModel):
+    QR_id: int

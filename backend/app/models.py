@@ -31,16 +31,16 @@ class User(Base):
     password = Column(String)
     created_at = Column(Float)
 
-    timer: RelationshipProperty = relationship("Timer", back_populates="user")
+    QR: RelationshipProperty = relationship("QR", back_populates="user")
 
 
-class Timer(Base):
-    __tablename__ = "timer"
+class QR(Base):
+    __tablename__ = "QR"
 
     id = Column(Integer, index=True, primary_key=True)
     user_id = Column(Integer, ForeignKey("user.id"))
     created_at = Column(Float)
     title = Column(String)
-    time = Column(Integer)
+    link = Column(String)
 
-    user: RelationshipProperty = relationship("User", back_populates="timer")
+    user: RelationshipProperty = relationship("User", back_populates="QR")
