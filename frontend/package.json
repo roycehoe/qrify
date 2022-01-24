@@ -1,5 +1,5 @@
 {
-  "name": "signals",
+  "name": "qrify",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",

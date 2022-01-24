@@ -20,5 +20,5 @@ services:
       POSTGRES_DB: card_game
       POSTGRES_PASSWORD: password
 
-  timer-service:
+  qr-service:
     build: ./backend

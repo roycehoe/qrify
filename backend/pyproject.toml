@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "hackathon-backend"
+name = "qrify"
 version = "0.1.0"
 description = ""
 authors = ["roycehoe <royceinbox@hotmail.com>"]
