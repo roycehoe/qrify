@@ -39,7 +39,7 @@ function showEndCountdownDisplay() {
   isTimerStarted.value = false
 
   playBell()
-  timerDisplay.value.time = -1
+  timerDisplay.value.time = 0
   updateTimerDisplay()
 }
 
@@ -48,7 +48,7 @@ function startCountdown() {
   isTimerStarted.value = true
 
   const timer = setInterval(() => {
-    if (timerDisplay.value.time < 0) {
+    if (timerDisplay.value.time === 0) {
       showEndCountdownDisplay()
       clearInterval(timer)
       return
