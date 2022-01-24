@@ -73,28 +73,28 @@ onBeforeMount(async () => updateTimerDisplay());
 
 <template>
   <div class="timer-display__centered flex justify-center m-4" v-if="data?.id">
-    <div class="timer-display flex flex-col">
+    <div class="timer-display flex flex-col items-center">
       <div class="timer__header">
         <p class="text-center font-bold text-4xl max-w-sm">{{ timerDisplay.title }}</p>
       </div>
-      <div class="divider"></div>
+      <div class="divider h-full w-60"></div>
       <div class="grid grid-flow-col gap-5 text-center auto-cols-max">
         <div class="flex flex-col">
-          <span class="font-mono text-8xl countdown">
+          <span class="font-mono text-6xl md:text-8xl countdown">
             <span :style="// @ts-ignore
             { '--value': timerDisplay.minutes }"></span>
           </span>
           hours
         </div>
         <div class="flex flex-col">
-          <span class="font-mono text-8xl countdown">
+          <span class="font-mono text-6xl md:text-8xl countdown">
             <span :style="// @ts-ignore 
             { '--value': timerDisplay.minutes }"></span>
           </span>
           min
         </div>
         <div class="flex flex-col">
-          <span class="font-mono text-8xl countdown">
+          <span class="font-mono text-6xl md:text-8xl countdown">
             <span :style=" // @ts-ignore
             { '--value': timerDisplay.seconds }"></span>
           </span>
