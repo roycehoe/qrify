@@ -64,6 +64,7 @@ class QRCreateOut(BaseModel):
     created_at: float
     title: str
     link: str
+    image: str
 
     class Config:
         orm_mode = True

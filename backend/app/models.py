@@ -42,5 +42,6 @@ class QR(Base):
     created_at = Column(Float)
     title = Column(String)
     link = Column(String)
+    image = Column(String)
 
     user: RelationshipProperty = relationship("User", back_populates="QR")

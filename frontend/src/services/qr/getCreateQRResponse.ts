@@ -14,6 +14,7 @@ export interface CreateQRResponse {
     created_at: any
     title: string
     link: string
+    image: string
 }
 
 export async function getCreateQRResponse(createQRRequest: CreateQRRequest): Promise<Result<CreateQRResponse, ErrorCode>> {

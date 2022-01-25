@@ -50,8 +50,9 @@ const createQRForm = ref({} as CreateQRRequest)
       </div>
       <div class="timer-form--display__group flex justify-center my-8">
         <div class="timer-form--display grid grid-flow-col gap-5 text-center auto-cols-max"></div>
-        <button class="btn btn-success bg-green-500 border-none hover:bg-green-600">Create Timer</button>
+        <button class="btn btn-success bg-green-500 border-none hover:bg-green-600">Create QR</button>
       </div>
+      <div class="divider"></div>
     </form>
   </div>
 </template>

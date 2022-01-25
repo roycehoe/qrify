@@ -51,6 +51,7 @@ async function createAccount(): Promise<void> {
           autocomplete="off"
           required="true"
           maxlength="20"
+          minlength="8"
         />
       </div>
 
@@ -63,6 +64,7 @@ async function createAccount(): Promise<void> {
           autocomplete="off"
           required="true"
           maxlength="20"
+          minlength="8"
         />
       </div>
 
@@ -75,6 +77,7 @@ async function createAccount(): Promise<void> {
           autocomplete="off"
           required="true"
           maxlength="20"
+          minlength="8"
         />
       </div>
     </div>

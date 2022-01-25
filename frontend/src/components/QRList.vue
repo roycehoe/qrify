@@ -18,7 +18,6 @@ function test() {
 
 
 <template>
-  <button @click="test">test here</button>
   <div v-for="QR in allQRs">
     <div
       class="dashboardInfo__group survey bg-neutral-100 rounded-md m-2 bg-gray-50 flex justify-between"

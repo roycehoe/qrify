@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import QRList from '@/components/QRList.vue';
 import QRCreate from '@/components/QRCreate.vue';
-import Countdown from '@/components/Countdown.vue';
+import QRDisplay from '@/components/QRDisplay.vue';
 
 </script>
 
@@ -15,7 +15,7 @@ import Countdown from '@/components/Countdown.vue';
     <div>
       <div class="max-w-7xl py-6 px-8 mx-auto">
         <div class="border-4 border-dashed border-gray-200 rounded-lg min-h-16 h-max my-10">
-          <Countdown></Countdown>
+          <QRDisplay></QRDisplay>
         </div>
         <QRCreate></QRCreate>
         <div class="border-4 border-dashed border-gray-200 rounded-lg min-h-16 h-max mt-10">

@@ -6,6 +6,7 @@ authors = ["roycehoe <royceinbox@hotmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+qrcode = {extras = ["pil"], version = "^7.3.1"}
 
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.13.0"

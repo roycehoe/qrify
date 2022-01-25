@@ -1,3 +1,4 @@
+import base64
 from os import link
 from time import time
 
@@ -5,6 +6,16 @@ from sqlalchemy.orm.session import Session
 from app import models, schemas
 from app.errors import InvalidCredentialsError, QRNotFoundError
 from app.repository.QR import QRRepository
+import qrcode
+from io import BytesIO
+
+
+def __create_QR_image(qr_link: str):
+    buffered = BytesIO()
+    img = qrcode.make(qr_link)
+    img.save(buffered, format="PNG")
+
+    return base64.b64encode(buffered.getvalue()).decode("utf-8")
 
 
 def create_QR(
@@ -15,6 +26,7 @@ def create_QR(
         created_at=time(),
         title=request.title,
         link=request.link,
+        image=__create_QR_image(request.link),
     )
     try:
         QRRepository(session).save(new_QR)
