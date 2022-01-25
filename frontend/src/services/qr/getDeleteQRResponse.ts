@@ -7,7 +7,7 @@ export interface DeleteQRRequest {
 }
 
 
-export async function getDeleteTimerResponse(deleteQRForm: DeleteQRRequest): Promise<Result<void, ErrorCode>> {
+export async function getDeleteQRResponse(deleteQRForm: DeleteQRRequest): Promise<Result<void, ErrorCode>> {
     try {
         const response = await client.delete("/QR", { data: deleteQRForm });
         return Ok(response.data as void)
