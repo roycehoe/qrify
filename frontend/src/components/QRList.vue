@@ -6,14 +6,6 @@ import { onBeforeMount, PropType, ref } from 'vue';
 const { deleteQR, setCurrentQR, allQRs, getAllQRs, currentQR, getCurrentQR } = useQRs()
 onBeforeMount(async () => await getAllQRs());
 
-function test() {
-  console.log(currentQR.value)
-  setCurrentQR(1)
-  console.log(currentQR.value)
-  const test = getCurrentQR()
-  console.log(test.value)
-}
-
 </script>
 
 
