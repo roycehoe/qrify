@@ -1,35 +1,32 @@
-# Setup
-1. Set up poetry
-- `cd backend`
-- Modify `pyproject.toml` project name with current project name
-- run `poetry install`
+# Overview
+https://qrify.fancybinary.sg/
 
-2. Set up pnpm packages
-- `cd backend`
-- Modify `package.json` project name with current project name
-- run `pnpm install`
+An application that creates QR codes for users. Built with Python and Typescript.
 
-3. Set up docker files
-- change container names in `docker-compose.yml`
 
-4. Set up test environment
-- change baseURL in `frontend/src/services/config.ts` to `localhost:8000`
-- change server_name in `frontend/nginx/default.conf` to `localhost`
-- change proxy_pass in `frontend/nginx/default.conf` from `http://timer-service:80/` to `{container_name}`
+# Backend
+ - Implement core game logic by implementing functions that returns altered Gamestate objects
+ - Implement a PostgreSQL relational database with SQLAlchemy that stores User authentication details, and the corresponding created QR codes
+ - Utilized FastAPI to create endpoints for users to create and authenticated users to log into their accounts via a JWT token
+ - Utilized FastAPI to create endpoints for authenticated users to perform CRUD actions on their QR codes
+ - Used Pydantic BaseModel to dictate the request and return structure for each API call
 
-# Local testing
-1. Backend
-- `cd backend`
-- run `uvicorn app.main :app --reload`
+# Security and error handling
+ - Utilized CryptContext to hash passwords when stored in my database
+ - Implement the creation of a JWT token whenever a user is successfully authenticated
+ - Implement custom Exceptions for invalid API calls
+ - Implement custom HTTP response status codes for invalid requests sent to my API endpoint with accompanying custom error codes
 
-2. Frontend
-- `cd frontend`
-- run `pnpm run dev`
-
-# Local testing (Docker)
-- `docker-compose build && docker-compose up`
-
+# Frontend
+ - Implement Axios client to make API calls to application backend
+ - Use Vue.js to build QR code application components
+ - Utilize Vue Composition API to encapsulate and reuse stateful logic for application dashboard
+ - Utilize Typescript to implement Typing and Interfaces
+ - Implement responsive web design with Tailwind css and daisy.ui components
 
 # Deployment
-- change baseURL in `frontend/src/services/config.ts` to `{server_name}`
-- change server_name in `frontend/nginx/default.conf` to `{server_name}/api`
+ - Create Docker files for both backend and frontend
+ - Implement docker-compose to create container networks
+ - Implement a reverse proxy with Nginx to send requests to the respective containers, and to simplify deployment on a single server
+ - Used DigitalOcean to deploy application on a virtual private server
+ - Used Cloudflare to set up a DNS to redirect users from my application domain name to my virtual private server
