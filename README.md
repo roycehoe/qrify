@@ -5,7 +5,6 @@ An application that creates QR codes for users. Built with Python and Typescript
 
 
 # Backend
- - Implement core game logic by implementing functions that returns altered Gamestate objects
  - Implement a PostgreSQL relational database with SQLAlchemy that stores User authentication details, and the corresponding created QR codes
  - Utilized FastAPI to create endpoints for users to create and authenticated users to log into their accounts via a JWT token
  - Utilized FastAPI to create endpoints for authenticated users to perform CRUD actions on their QR codes
