@@ -22,3 +22,5 @@ services:
 
   qr-service:
     build: ./backend
+    ports:
+      - "80:80"
