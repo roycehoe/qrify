@@ -11,6 +11,4 @@ function getBaseURL(envValue: string | undefined, defaultValue: string): string 
     return defaultValue
 }
 
-// export const baseURL = getBaseURL(envFile.VITE_BASE_URL, "http://localhost:8000")
-// export const baseURL = getBaseURL(envFile.VITE_BASE_URL, "http://localhost:80")
 export const baseURL = getBaseURL(envFile.VITE_BASE_URL, "http://localhost/api")

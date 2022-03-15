@@ -9,9 +9,6 @@ DEFAULT_ALGORITHM = "HS256"
 DEFAULT_ACCESS_TOKEN_EXPIRE_MINUTES = "2880"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost",
-    "http://localhost:3000",
-    "http://localhost",
-    "https://kount.fancybinary.sg"  # change on deployment
 ]
 
 
