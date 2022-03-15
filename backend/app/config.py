@@ -9,6 +9,7 @@ DEFAULT_ALGORITHM = "HS256"
 DEFAULT_ACCESS_TOKEN_EXPIRE_MINUTES = "2880"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost",
+    "https://qrify.fancybinary.sg/"
 ]
 
 

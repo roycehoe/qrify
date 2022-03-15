@@ -11,4 +11,4 @@ function getBaseURL(envValue: string | undefined, defaultValue: string): string 
     return defaultValue
 }
 
-export const baseURL = getBaseURL(envFile.VITE_BASE_URL, "http://localhost/api")
+export const baseURL = getBaseURL(envFile.VITE_BASE_URL, "https://qrify.fancybinary.sg/api;")
